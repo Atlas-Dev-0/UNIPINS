@@ -12,4 +12,4 @@
 - Categories for posts like events, announcements, and merchandise.
 - Donation system using Solana for fun, goal-oriented contributions.
 
-Let me know if you need further adjustments!
+---
