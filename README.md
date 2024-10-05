@@ -1,4 +1,4 @@
-# UNIPINS - University Organization Web4 Based Social Platform
+# UNIPINS - University Organization Web3 Based Social Platform
 
 **UNIPINS** is a Web3-based social platform where students can explore and pin important content related to university organizations. Organizations pay using **Solana** for creating accounts and posting merchandise or announcements, while students can engage through donations and pinning important updates. The platform integrates **Solana-based Web3 payments** for transactions, making it a hub for university interactions and digital fundraising.
 
