@@ -6,7 +6,7 @@
 
 **Key Features:**
 
-- **Web3 login and Solana payment integration** (e.g., MetaMask for Solana).
+- **Web3 login and Solana payment integration** (e.g., Solana).
 - Organization accounts with Solana payments for posting and merchandise.
 - Student interaction via pins, donations, and engagement with posts.
 - Categories for posts like events, announcements, and merchandise.
