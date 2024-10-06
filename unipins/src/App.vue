@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="grid grid-rows-[auto_1fr] grid-cols-6 gap-6 w-screen h-screen p-6">
+  <div class="grid grid-rows-[auto_1fr] grid-cols-6 gap-6 w-screen h-screen p-6 overflow-hidden">
 
     <!-- Header Bar -->
     <header class="col-span-6 bg-slate-800 p-4 text-white rounded-[25px]">
@@ -11,8 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </header>
 
     <!-- Navbar -->
-    <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px]">
-
+    <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px] sticky top-0 h-[calc(100vh-64px)] overflow-y-auto">
       <ul class="space-y-4">
         <li>
           <RouterLink to="/" class="text-white hover:text-gray-200">Home</RouterLink>
@@ -36,7 +35,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </nav>
 
     <!-- Main Content -->
-    <main class="col-span-5 bg-slate-800 p-6 text-white rounded-[25px]">
+    <main class="col-span-5 p-6 pt-0 text-white rounded-[25px] overflow-y-auto">
       <RouterView />
     </main>
 
@@ -44,5 +43,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-/* css here */
+/* Scoped styles */
+nav {
+  /* Ensuring sticky works by setting height */
+  height: calc(100vh - 64px);
+  /* Adjust according to the actual header height */
+}
 </style>
