@@ -35,7 +35,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </nav>
 
     <!-- Main Content -->
-    <main class="col-span-5 p-6 pt-0 text-white rounded-[25px] overflow-y-auto">
+    <main class="col-span-5 p-6 pt-0 pl-0 text-white rounded-lg overflow-y-auto">
       <RouterView />
     </main>
 
