@@ -1,6 +1,8 @@
 import express from 'express'
 import axios from 'axios'
 import cors from 'cors'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 const app = express()
 const PORT = 5000 // Server's port
@@ -11,6 +13,13 @@ app.use(express.json())
 
 // Base URL of the JSON server
 const JSON_SERVER_URL = 'http://localhost:3000'
+
+// Get the directory name
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// Serve static files from the public directory
+app.use('/public', express.static(path.join(__dirname, 'public')))
 
 // Get all organizations
 app.get('/organizations', async (req, res) => {

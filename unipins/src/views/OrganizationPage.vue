@@ -2,7 +2,7 @@
   <div v-if="organization" name="banner" class="w-full rounded-xl h-[250px] mb-[20px] overflow-hidden relative">
     <img :src="organization.bannerImage" alt="Banner Image" class="w-full h-full object-cover" />
   </div>
-  <div v-if="organization" name="name-of-org" class="flex items-center mt-4 mb-10">
+  <div v-if="organization" name="name-of-org" class="flex p-4 items-center mt-4 mb-10">
     <h1 class="text-5xl font-bold w-4/5 h-fit">{{ organization.name }}</h1>
     <div class="flex items-center p-5 rounded-lg">
       <button
@@ -21,10 +21,10 @@
     </div>
   </div>
 
-  <div v-if="cards.length > 0" class="grid grid-cols-5 auto-rows-min w-full rounded-xl p-0 gap-4">
+  <div v-if="cards.length > 0" class="grid grid-cols-5 auto-rows-min w-full rounded-xl pl-4 pr-5 pb-12 gap-4">
     <!-- Dynamically render the cards from the JSON data -->
     <div v-for="(card, index) in cards" :key="index"
-      class="bg-slate-800 h-fit rounded-lg shadow p-4 flex flex-col justify-between transform transition-transform duration-300 ease-in-out hover:scale-105">
+      class="bg-blue-900 h-fit rounded-lg shadow p-4 flex flex-col justify-between transform transition-transform duration-300 ease-in-out hover:scale-105">
       <!-- Title Section -->
       <h3 class="text-xl font-bold mb-2">{{ card.title }}</h3>
       <!-- Content Section -->
@@ -77,10 +77,9 @@ export default {
         const response = await axios.get(`http://localhost:3000/organizations/${orgId}`)
         organization.value = response.data.organization // Fetch organization details
         cards.value = response.data.cards.map(card => ({ ...card, liked: false })) // Initialize liked state for each card
+
         console.log("Presenting Organization")
         console.log("Name: ", organization.value.name)
-
-
       } catch (error) {
         console.error('Error fetching organization data:', error)
       }

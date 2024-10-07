@@ -4,7 +4,7 @@
       "id": 1,
       "organization": {
         "name": "Institute of Computer Engineers - Student Edition",
-        "bannerImage": "@/stores/database/public/banner.jpg"
+        "bannerImage": "/public/icpep-banner.jpg"
       },
       "cards": [
         {
@@ -102,7 +102,7 @@
       "id": 2,
       "organization": {
         "name": "Mechanical Engineering Society",
-        "bannerImage": "/path/to/mech_banner.jpg"
+        "bannerImage": "/public/mech-banner.jpg"
       },
       "cards": [
         {
@@ -186,7 +186,7 @@
       "id": 3,
       "organization": {
         "name": "Electrical Engineering Society",
-        "bannerImage": "/path/to/ee_banner.jpg"
+        "bannerImage": "/public/ee-banner.jpg"
       },
       "cards": [
         {
