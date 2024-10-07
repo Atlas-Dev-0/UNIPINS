@@ -3,6 +3,11 @@ import axios from 'axios'
 import cors from 'cors'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import jsonServer from 'json-server'
+
+const server = jsonServer.create()
+const router = jsonServer.router('unipins-database.json')
+const middlewares = jsonServer.defaults()
 
 const app = express()
 const PORT = 5000 // Server's port
