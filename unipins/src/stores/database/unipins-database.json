@@ -1,0 +1,270 @@
+{
+  "organizations": [
+    {
+      "id": 1,
+      "organization": {
+        "name": "Institute of Computer Engineers - Student Edition",
+        "bannerImage": "@/stores/database/public/banner.jpg"
+      },
+      "cards": [
+        {
+          "id": 1,
+          "title": "LET'S GO ENGINEERING!! 🎉",
+          "content": "Get ready for an amazing semester ahead! The Computer Engineering department welcomes all new and returning students. Let's build the future together with innovation and passion! 🚀 #CPE2024",
+          "likes": 56,
+          "comments": [
+            {
+              "username": "john_doe",
+              "content": "Super excited for this semester!"
+            },
+            {
+              "username": "jane_smith",
+              "content": "Can't wait for all the events!"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Hackathon 2024: Register Now! ⚔️",
+          "content": "Calling all code warriors! Our annual Hackathon is back this December. Form your teams and show off your problem-solving skills to win amazing prizes. 🏆 Registration closes on November 15th. Don’t miss out!",
+          "likes": 104,
+          "comments": [
+            {
+              "username": "hack_lover",
+              "content": "Ready to win this year!"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Tech Talk: Innovations in AI 🤖",
+          "content": "Join us for an inspiring talk on the latest innovations in Artificial Intelligence. Meet industry experts and learn about emerging trends.",
+          "likes": 70,
+          "comments": [
+            {
+              "username": "ai_fan",
+              "content": "Can't wait to hear from the experts!"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "title": "Study Groups Forming Now! 📚",
+          "content": "Struggling with your courses? Join our study groups to collaborate with peers and ace your exams together!",
+          "likes": 45,
+          "comments": []
+        },
+        {
+          "id": 5,
+          "title": "Monthly Coding Challenge: Join Us! 💻",
+          "content": "Put your coding skills to the test! Participate in our monthly coding challenge and stand a chance to win exciting prizes.",
+          "likes": 60,
+          "comments": []
+        },
+        {
+          "id": 6,
+          "title": "Career Fair: Meet Top Tech Companies! 🏢",
+          "content": "Don’t miss our annual Career Fair! Connect with leading tech companies and explore internship and job opportunities.",
+          "likes": 88,
+          "comments": []
+        },
+        {
+          "id": 7,
+          "title": "Volunteer for Community Outreach! 🌍",
+          "content": "Help us make a difference! Join our community outreach program and use your skills to help those in need.",
+          "likes": 52,
+          "comments": []
+        },
+        {
+          "id": 8,
+          "title": "Game Development Workshop 🎮",
+          "content": "Learn how to create your own video games! Join our workshop and get hands-on experience with game development.",
+          "likes": 95,
+          "comments": []
+        },
+        {
+          "id": 9,
+          "title": "Alumni Networking Event 🌐",
+          "content": "Reconnect with alumni and build valuable connections. Join us for an evening of networking and mentorship!",
+          "likes": 40,
+          "comments": []
+        },
+        {
+          "id": 10,
+          "title": "Weekly Coding Bootcamp 🏆",
+          "content": "Enhance your coding skills with our weekly bootcamp sessions. All levels are welcome!",
+          "likes": 75,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "organization": {
+        "name": "Mechanical Engineering Society",
+        "bannerImage": "/path/to/mech_banner.jpg"
+      },
+      "cards": [
+        {
+          "id": 1,
+          "title": "Robotics Workshop",
+          "content": "Join us for a hands-on session on building and programming robots!",
+          "likes": 90,
+          "comments": [
+            {
+              "username": "robotics_fan",
+              "content": "This is going to be amazing!"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Engineering Design Contest 🏗️",
+          "content": "Show your creativity in our engineering design contest! Great prizes await the winners!",
+          "likes": 65,
+          "comments": []
+        },
+        {
+          "id": 3,
+          "title": "Visit to Local Manufacturing Plant 🏭",
+          "content": "Join us for a field trip to a local manufacturing plant and see engineering in action!",
+          "likes": 40,
+          "comments": []
+        },
+        {
+          "id": 4,
+          "title": "Guest Speaker: Career in Mechanical Engineering 🗣️",
+          "content": "Listen to an industry expert discuss the career opportunities in mechanical engineering.",
+          "likes": 80,
+          "comments": []
+        },
+        {
+          "id": 5,
+          "title": "3D Printing Workshop 🖨️",
+          "content": "Learn how to create 3D models and print them in our interactive workshop!",
+          "likes": 55,
+          "comments": []
+        },
+        {
+          "id": 6,
+          "title": "Mechanical Engineering Networking Night 🌙",
+          "content": "Network with professionals and fellow students at our annual networking night.",
+          "likes": 75,
+          "comments": []
+        },
+        {
+          "id": 7,
+          "title": "Sustainable Engineering Practices 🌱",
+          "content": "Join us for a discussion on sustainable practices in engineering and their importance in today's world.",
+          "likes": 50,
+          "comments": []
+        },
+        {
+          "id": 8,
+          "title": "Capstone Project Showcase 📊",
+          "content": "Showcase your capstone projects and get feedback from peers and professors.",
+          "likes": 90,
+          "comments": []
+        },
+        {
+          "id": 9,
+          "title": "Engineering Career Fair 📅",
+          "content": "Explore internship and job opportunities with leading companies at our engineering career fair.",
+          "likes": 100,
+          "comments": []
+        },
+        {
+          "id": 10,
+          "title": "Engineering Film Night 🎬",
+          "content": "Join us for an evening of engineering-themed films and discussions!",
+          "likes": 35,
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "organization": {
+        "name": "Electrical Engineering Society",
+        "bannerImage": "/path/to/ee_banner.jpg"
+      },
+      "cards": [
+        {
+          "id": 1,
+          "title": "Circuit Design Challenge",
+          "content": "Show your circuit design skills in this exciting competition!",
+          "likes": 45,
+          "comments": [
+            {
+              "username": "circuit_master",
+              "content": "Looking forward to participating!"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Electronics Basics Workshop 🔌",
+          "content": "Join us for a workshop covering the basics of electronics and circuit design.",
+          "likes": 60,
+          "comments": []
+        },
+        {
+          "id": 3,
+          "title": "Power Systems Seminar ⚡",
+          "content": "Learn about the latest advancements in power systems from leading experts in the field.",
+          "likes": 70,
+          "comments": []
+        },
+        {
+          "id": 4,
+          "title": "Visit to Renewable Energy Facility ☀️",
+          "content": "Join us for a tour of a local renewable energy facility and learn about sustainable energy solutions.",
+          "likes": 50,
+          "comments": []
+        },
+        {
+          "id": 5,
+          "title": "IEEE Membership Drive 📈",
+          "content": "Join the IEEE community and gain access to valuable resources and networking opportunities.",
+          "likes": 85,
+          "comments": []
+        },
+        {
+          "id": 6,
+          "title": "Electrical Safety Training ⚠️",
+          "content": "Learn about safety practices in electrical engineering and get certified.",
+          "likes": 40,
+          "comments": []
+        },
+        {
+          "id": 7,
+          "title": "Electromagnetic Fields Workshop 📡",
+          "content": "Explore the fundamentals of electromagnetic fields and their applications in engineering.",
+          "likes": 65,
+          "comments": []
+        },
+        {
+          "id": 8,
+          "title": "Electrical Engineering Networking Event 🔗",
+          "content": "Meet industry professionals and fellow students at our networking event!",
+          "likes": 90,
+          "comments": []
+        },
+        {
+          "id": 9,
+          "title": "Internship Preparation Seminar 📝",
+          "content": "Get tips and advice on securing internships in electrical engineering.",
+          "likes": 55,
+          "comments": []
+        },
+        {
+          "id": 10,
+          "title": "Annual Tech Symposium 📊",
+          "content": "Join us for our annual symposium featuring research presentations and industry talks.",
+          "likes": 80,
+          "comments": []
+        }
+      ]
+    }
+  ]
+}

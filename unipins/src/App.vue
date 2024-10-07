@@ -1,7 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <div class="grid grid-rows-[auto_1fr] grid-cols-6 gap-6 w-screen h-screen p-6 overflow-hidden">
 
@@ -31,6 +27,12 @@ import { RouterLink, RouterView } from 'vue-router'
         <li>
           <RouterLink to="/donations" class="text-white hover:text-gray-200">Donation</RouterLink>
         </li>
+        <!-- Organizations as Buttons -->
+        <li v-for="org in organizations" :key="org.id">
+          <RouterLink :to="`/organizations/${org.id}`" class="text-white hover:text-gray-200">
+            {{ org.organization.name }}
+          </RouterLink>
+        </li>
       </ul>
     </nav>
 
@@ -42,11 +44,36 @@ import { RouterLink, RouterView } from 'vue-router'
   </div>
 </template>
 
+<script>
+import { ref, onMounted } from 'vue';
+import { RouterLink } from 'vue-router'; // Make sure to import RouterLink if not already
+
+export default {
+  setup() {
+    const organizations = ref([]);
+
+    // Fetch organizations from the server
+    const fetchOrganizations = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/organizations'); // Adjust the URL as needed
+        organizations.value = await response.json();
+      } catch (error) {
+        console.error('Error fetching organizations:', error);
+      }
+    };
+
+    // Fetch organizations when the component is mounted
+    onMounted(fetchOrganizations);
+
+    return {
+      organizations,
+    };
+  },
+};
+</script>
+
 <style scoped>
-/* Scoped styles */
 nav {
-  /* Ensuring sticky works by setting height */
   height: calc(100vh - 64px);
-  /* Adjust according to the actual header height */
 }
 </style>
