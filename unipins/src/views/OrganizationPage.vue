@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
 
@@ -89,6 +89,11 @@ export default {
     onMounted(() => {
       fetchOrganizationData() // Fetch data when component is mounted
     })
+
+    // Watch for route changes and refetch data when route changes
+    watch(route, () => {
+      fetchOrganizationData(); // Refetch the organization data when route changes
+    });
 
     const toggleLike = (index) => {
       cards.value[index].liked = !cards.value[index].liked

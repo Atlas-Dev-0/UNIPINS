@@ -9,30 +9,32 @@
     <!-- Navbar -->
     <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px] sticky top-0 h-[calc(100vh-64px)] overflow-y-auto">
       <ul class="space-y-4">
-        <li>
-          <RouterLink to="/" class="text-white hover:text-gray-200">Home</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about" class="text-white hover:text-gray-200">About</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/profile" class="text-white hover:text-gray-200">Profile</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/merch-view" class="text-white hover:text-gray-200">Merch View</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/merch-payment" class="text-white hover:text-gray-200">Merch Payment</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/donations" class="text-white hover:text-gray-200">Donation</RouterLink>
-        </li>
+        <!-- <li> -->
+        <!--   <RouterLink to="/" class="text-white hover:text-gray-200">Home</RouterLink> -->
+        <!-- </li> -->
+        <!-- <li> -->
+        <!--   <RouterLink to="/about" class="text-white hover:text-gray-200">About</RouterLink> -->
+        <!-- </li> -->
+        <!-- <li> -->
+        <!--   <RouterLink to="/profile" class="text-white hover:text-gray-200">Profile</RouterLink> -->
+        <!-- </li> -->
+        <!-- <li> -->
+        <!--   <RouterLink to="/merch-view" class="text-white hover:text-gray-200">Merch View</RouterLink> -->
+        <!-- </li> -->
+        <!-- <li> -->
+        <!--   <RouterLink to="/merch-payment" class="text-white hover:text-gray-200">Merch Payment</RouterLink> -->
+        <!-- </li> -->
+        <!-- <li> -->
+        <!--   <RouterLink to="/donations" class="text-white hover:text-gray-200">Donation</RouterLink> -->
+        <!-- </li> -->
         <!-- Organizations as Buttons -->
+
         <li v-for="org in organizations" :key="org.id">
           <RouterLink :to="`/organizations/${org.id}`" class="text-white hover:text-gray-200">
             {{ org.organization.name }}
           </RouterLink>
         </li>
+
       </ul>
     </nav>
 
