@@ -50,11 +50,8 @@ const router = createRouter({
       component: () => import('../views/DonationView.vue')
     },
     {
-      path: '/organizations',
-      name: 'oragnizations',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: '/organizations/:id', // Updated path to accept an id parameter
+      name: 'organization',
       component: () => import('../views/OrganizationPage.vue')
     }
   ]

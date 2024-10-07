@@ -66,7 +66,7 @@ import axios from 'axios'
 export default {
   setup() {
     const route = useRoute()
-    const organization = ref(null)
+    const organization = ref()
     const cards = ref([])
     const isHovered = ref(false)
 
@@ -75,8 +75,12 @@ export default {
       const orgId = route.params.id // Get the organization id from the route
       try {
         const response = await axios.get(`http://localhost:3000/organizations/${orgId}`)
-        organization.value = response.data
+        organization.value = response.data.organization // Fetch organization details
         cards.value = response.data.cards.map(card => ({ ...card, liked: false })) // Initialize liked state for each card
+        console.log("Presenting Organization")
+        console.log("Name: ", organization.value.name)
+
+
       } catch (error) {
         console.error('Error fetching organization data:', error)
       }
