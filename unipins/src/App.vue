@@ -4,8 +4,6 @@
     <!-- Header Bar -->
     <header
       class="col-span-6 bg-slate-800 align-middle pl-6 pr-6 p-2 text-white rounded-2xl flex justify-between items-center">
-
-
       <!-- Logo -->
       <RouterLink to="/">
         <img src="@/assets/images/UNIPINS_logo.png" alt="Banner Image" class="w-[120px] h-auto object-cover" />
@@ -13,7 +11,7 @@
 
       <!-- Account Button with Dropdown -->
       <div class="align-middle relative z-50" @click="toggleDropdown">
-        <img src="@/assets/icons/account_icon.svg" alt="account" class=" align-middle w-8 h-8 cursor-pointer">
+        <img src="@/assets/icons/account_icon.svg" alt="account" class="align-middle w-8 h-8 cursor-pointer">
         <!-- Dropdown menu -->
         <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-lg shadow-lg">
           <p class="px-4 py-2 text-sm text-white">Username: Mrg2400 </p>
@@ -24,16 +22,12 @@
         </div>
       </div>
     </header>
+
     <!-- Navbar -->
     <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px] sticky top-0 h-[calc(100vh-64px)] overflow-y-auto">
       <RouterLink to="/">
-        <h1 class="p-1 text-xl font-bold text-slate-100	mb-4 rounded-xl text-left">
+        <h1 class="p-1 text-xl font-bold text-slate-100 mb-4 rounded-xl text-left">
           Home
-        </h1>
-      </RouterLink>
-      <RouterLink to="/settings">
-        <h1 class="p-1  text-xl font-bold text-slate-100 mb-4 rounded-xl text-left">
-          Settings
         </h1>
       </RouterLink>
       <div>
@@ -72,14 +66,12 @@
   </div>
 </template>
 
-
 <script>
 import { ref, onMounted } from 'vue';
-import { RouterLink } from 'vue-router'; // Make sure to import RouterLink if not already
+import { RouterLink } from 'vue-router';
 
 export default {
   setup() {
-
     const organizations = ref([]);
     const showDropdown = ref(false);
     const walletId = ref("Your Solana Wallet ID"); // Replace with actual wallet ID logic
@@ -88,13 +80,22 @@ export default {
       showDropdown.value = !showDropdown.value;
     };
 
-    // Fetch organizations from the server
+    // Fetch organizations from the local JSON file
     const fetchOrganizations = async () => {
       try {
-        const response = await fetch('http://localhost:3000/organizations'); // Adjust the URL as needed
-        organizations.value = await response.json();
+        console.log('Fetching organizations...'); // Log fetch start
+
+        const response = await fetch('/unipins-database.json'); // Corrected path to local file
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        const data = await response.json();
+
+        console.log('Data fetched:', data); // Log data to debug
+        organizations.value = data.organizations || []; // Ensure the structure is what you expect
+
+        console.log('Organizations:', organizations.value); // Log organizations for verification
       } catch (error) {
-        console.error('Error fetching organizations:', error);
+        console.error('Error fetching organizations:', error); // Log any errors
       }
     };
 
@@ -105,7 +106,7 @@ export default {
       organizations,
       showDropdown,
       toggleDropdown,
-      walletId
+      walletId,
     };
   },
 };
