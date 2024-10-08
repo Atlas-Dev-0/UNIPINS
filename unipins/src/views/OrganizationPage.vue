@@ -2,15 +2,15 @@
   <div v-if="organization" name="banner" class="w-full rounded-xl h-[250px] mb-[20px] overflow-hidden relative">
     <img :src="fullBannerImagePath" alt="Banner Image" class="w-full h-full object-cover" />
   </div>
-  <div v-if="organization" name="name-of-org" class="flex p-4 items-center mt-4 mb-10">
-    <h1 class="text-5xl font-bold w-4/5 h-fit">{{ organization.organization.name }}</h1>
-    <div class="flex items-center p-5 rounded-lg">
+  <div v-if="organization" name="name-of-org" class="flex flex-col items-center mt-4 mb-10">
+    <h1 class="text-5xl font-bold w-full text-center">{{ organization.organization.name }}</h1>
+    <div class="flex items-center p-5 rounded-lg mt-4">
       <button class="bg-blue-500 text-white text-xl rounded-lg py-2 px-4 hover:bg-blue-600 transition duration-300">
         Follow
       </button>
       <button @mouseover="isHovered = true" @mouseleave="isHovered = false"
         class="border border-green-500 text-xl text-green-500 rounded-lg py-2 px-4 ml-5 mr-2 hover:bg-green-500 hover:text-white transition duration-1000"
-        style="width: 120px; position: relative;">
+        style="width: 120px; position: relative;" @click="openModal">
         <span class="transition-opacity duration-300" :class="isHovered ? 'opacity-0' : 'opacity-100'">
           Support
         </span>
@@ -51,6 +51,19 @@
   <div v-else>
     <p>No cards available for this organization.</p>
   </div>
+
+  <!-- Donation Modal -->
+  <div v-if="isModalOpen" class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div class="bg-gray-800 text-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+      <img :src="fullBannerImagePath" alt="Banner" class="w-full h-20 object-cover rounded-lg mb-4" />
+      <h2 class="text-xl font-bold mb-4 text-center">Donate to {{ organization.organization.name }}</h2>
+      <input v-model="donationAmount" type="number" placeholder="Enter amount"
+        class="border border-gray-600 bg-gray-700 text-white p-2 rounded w-full mb-4" />
+      <button @click="makeDonation"
+        class="bg-green-500 text-white py-2 rounded w-full hover:bg-green-600 transition duration-300">Donate</button>
+      <button @click="closeModal" class="mt-4 text-red-500 hover:underline">Cancel</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -63,11 +76,12 @@ export default {
     const organization = ref(null)
     const cards = ref([])
     const isHovered = ref(false)
+    const isModalOpen = ref(false)
+    const donationAmount = ref(0)
 
     // Computed property for the full image path
     const fullBannerImagePath = computed(() => {
       if (organization.value && organization.value.organization.bannerImage) {
-        // Ensure there is a leading slash
         if (organization.value.organization.bannerImage.startsWith('/')) {
           return organization.value.organization.bannerImage
         } else {
@@ -81,43 +95,57 @@ export default {
     const fetchOrganizationData = async () => {
       const orgId = route.params.id // Get the organization id from the route
       try {
-        console.log('Fetching organization data...'); // Log fetch start
-        const response = await fetch('/unipins-database.json') // Fetch from public folder
-        if (!response.ok) throw new Error('Failed to fetch the JSON file') // Error handling for fetch
+        console.log('Fetching organization data...');
+        const response = await fetch('/unipins-database.json')
+        if (!response.ok) throw new Error('Failed to fetch the JSON file')
 
-        const data = await response.json() // Parse the JSON file
-        console.log('Fetched data:', data); // Log data to verify structure
+        const data = await response.json()
+        console.log('Fetched data:', data);
 
-        // Find the organization by its ID (compare as string to avoid type mismatch)
         const orgData = data.organizations.find(org => org.id.toString() === orgId)
         if (orgData) {
-          organization.value = orgData // Set the organization data
-          cards.value = orgData.cards.map(card => ({ ...card, liked: false })) // Initialize liked state for each card
-          console.log('Organization found:', orgData); // Log the found organization
+          organization.value = orgData
+          cards.value = orgData.cards.map(card => ({ ...card, liked: false }))
+          console.log('Organization found:', orgData);
         } else {
           console.error('Organization not found for id:', orgId);
         }
 
       } catch (error) {
-        console.error('Error fetching organization data:', error) // Log any errors
+        console.error('Error fetching organization data:', error)
 
-        // Optionally, you can set a default or empty organization state
         organization.value = null
         cards.value = []
       }
     }
 
     onMounted(() => {
-      fetchOrganizationData() // Fetch data when the component is mounted
+      fetchOrganizationData()
     })
 
-    // Watch for route changes and refetch data when route changes
     watch(() => route.params.id, () => {
-      fetchOrganizationData(); // Refetch the organization data when route changes
+      fetchOrganizationData();
     });
 
     const toggleLike = (index) => {
-      cards.value[index].liked = !cards.value[index].liked // Toggle like state
+      cards.value[index].liked = !cards.value[index].liked
+    }
+
+    // Modal control methods
+    const openModal = () => {
+      isModalOpen.value = true;
+    }
+
+    const closeModal = () => {
+      isModalOpen.value = false;
+      donationAmount.value = 0; // Reset donation amount
+    }
+
+    const makeDonation = () => {
+      // Handle the donation logic here (e.g., call a web3 function)
+      console.log(`Donated ${donationAmount.value} to ${organization.value.organization.name}`);
+      closeModal();
+      // Optionally, reset the amount or update UI after donation
     }
 
     return {
@@ -125,7 +153,12 @@ export default {
       cards,
       isHovered,
       toggleLike,
-      fullBannerImagePath
+      fullBannerImagePath,
+      isModalOpen,
+      openModal,
+      closeModal,
+      donationAmount,
+      makeDonation
     }
   }
 }
@@ -133,4 +166,11 @@ export default {
 
 <style scoped>
 /* Add any additional styles here */
+.fixed {
+  position: fixed;
+}
+
+.bg-gray-800 {
+  background-color: #2d2d2d;
+}
 </style>
