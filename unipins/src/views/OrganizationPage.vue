@@ -87,11 +87,8 @@
     </div>
   </div>
   <div v-else>
-    <p>Please connect your wallet to proceed.</p>
-    <button @click="openModal"
-      class="bg-blue-500 text-white py-2 rounded mt-4 hover:bg-blue-600 transition duration-300">Connect Wallet</button>
 
-    <div v-if="!isWalletConnected && isModalOpen"
+    <div v-if="!isWalletConnected && isModalOpen && openModal"
       class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div class="bg-gray-800 text-white rounded-lg shadow-lg p-6 max-w-sm w-full">
         <h2 class="text-xl font-bold mb-4 text-center">Wallet Connection Required</h2>
