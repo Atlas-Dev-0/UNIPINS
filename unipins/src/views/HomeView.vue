@@ -110,7 +110,7 @@
           class="card h-[200] bg-slate-800 p-6 rounded-lg shadow-lg">
           <!-- Banner Teaser -->
           <div class="rounded-xl mx-auto my-auto align-center h-[100px] overflow-hidden">
-            <img :src="`/public/${org.organization.bannerImage}`" :alt="org.organization.name"
+            <img :src="`/${org.organization.bannerImage}`" :alt="org.organization.name"
               class="w-full h-[200px] object-cover rounded-lg mb-4" />
           </div>
           <div class="mt-2 w-full h-[70px] overflow-hidden">
