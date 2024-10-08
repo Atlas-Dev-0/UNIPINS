@@ -35,12 +35,12 @@
     <!-- Navbar -->
     <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px] sticky top-0 h-[calc(100vh-64px)] overflow-y-auto">
       <RouterLink to="/" class="flex h-[35px] items-center items-baseline ">
-        <div class="h-[15px] m-2">
+        <div class="h-[15px] m-4">
           <img src="@/assets/icons/homeIcon.svg" alt="home" class="h-[15px] cursor-pointer">
         </div>
-        <h1 class="text-2xl h-full font-bold text-slate-100 text-left">
+        <h2 class="text-xl h-full font-bold text-slate-100 text-left">
           Home
-        </h1>
+        </h2>
       </RouterLink>
       <div>
         <h1 class="mt-10 text-xl font-medium font-zinc-200 mb-4 rounded-xl text-left">
