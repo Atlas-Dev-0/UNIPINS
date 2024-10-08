@@ -57,12 +57,39 @@
         </div>
       </div>
     </div>
+    <div v-for="(card, index) in cards" :key="index"
+      class="bg-blue-900 h-fit rounded-lg shadow p-4 flex flex-col justify-between transform transition-transform duration-300 ease-in-out hover:scale-105">
+      <h3 class="text-xl font-bold mb-2">{{ card.title }}</h3>
+      <p class="text-white-700 mb-4">
+        {{ card.content }}
+      </p>
+      <div class="flex items-center justify-between">
+        <button class="flex items-center space-x-2" @click="toggleLike(index)">
+          <svg class="w-6 h-6" :class="card.liked ? 'text-red-500' : 'text-white'" fill="currentColor"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41 1 4.5 2.54C12.09 5 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+        </button>
+        <button class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M7 8h10M7 12h8m-7 8l4-4H5V5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H8l-4 4z"></path>
+          </svg>
+          <span>Comments</span>
+        </button>
+      </div>
+    </div>
 
     <!-- Available Groups Section -->
     <div class="w-full text-center mt-3">
-      <h1 class="text-4xl font-bold ">
-        Available Groups
+      <h1 class="text-6xl font-bold ">
+        UNIPIN GROUPS
       </h1>
+      <p class="mt-2">
+        <b>Connect your Wallet</b> and Follow your Favorite Organizations!
+      </p>
 
       <!-- Search Bar -->
       <input v-model="searchQuery" type="text" placeholder="Search for a group..."
@@ -82,55 +109,65 @@
         <div v-else v-for="org in filteredOrganizations" :key="org.id"
           class="card h-[200] bg-slate-800 p-6 rounded-lg shadow-lg">
           <!-- Banner Teaser -->
-          <div class="border mx-auto my-auto align-center h-[100px] overflow-hidden">
+          <div class="rounded-xl mx-auto my-auto align-center h-[100px] overflow-hidden">
             <img :src="`/public/${org.organization.bannerImage}`" :alt="org.organization.name"
               class="w-full h-[200px] object-cover rounded-lg mb-4" />
           </div>
+          <div class="mt-2 w-full h-[70px] overflow-hidden">
+            <h3 class="text-xl font-semibold text-gray-200">{{ org.organization.name }}</h3>
+            <!-- Follow Button -->
+          </div>
 
-          <h3 class="text-xl font-semibold text-gray-200">{{ org.organization.name }}</h3>
-          <!-- Follow Button -->
-          <button @click="followOrganization(org.id)"
-            class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:outline-none">
-            Follow
-          </button>
+          <RouterLink :to="`/organizations/${org.id}`">
+            <button @click="followOrganization(org.id)"
+              class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 focus:outline-none">
+              Check out!
+            </button>
+          </RouterLink>
         </div>
       </div>
     </div>
   </div>
 </template>
 
+
+
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, inject } from 'vue';
 
 export default {
   setup() {
-    const organizations = ref([]);
+    const organizations = inject('organizations'); // Inject the organizations
+    const addOrganization = inject('addOrganization'); // Inject the method to add organization
     const searchQuery = ref('');
+    const fetchedOrganizations = ref([]);
 
-    // Fetch organizations from JSON
     const fetchOrganizations = async () => {
       try {
         const response = await fetch('/unipins-database.json');
         const data = await response.json();
-        organizations.value = data.organizations; // Assign the JSON response to organizations array
+        fetchedOrganizations.value = data.organizations; // Use fetched data instead
       } catch (error) {
         console.error('Error fetching organizations:', error);
       }
     };
 
-    // Call fetchOrganizations when the component is mounted
     onMounted(fetchOrganizations);
 
-    // Computed property to filter organizations based on the search query
     const filteredOrganizations = computed(() => {
-      return organizations.value.filter((org) =>
+      return fetchedOrganizations.value.filter((org) =>
         org.organization.name.toLowerCase().includes(searchQuery.value.toLowerCase())
       );
     });
 
+    const followOrganization = (orgId) => {
+      addOrganization(orgId); // Call the injected method to add the organization
+    };
+
     return {
       searchQuery,
       filteredOrganizations,
+      followOrganization,
     };
   },
 };

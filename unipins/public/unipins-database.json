@@ -6,97 +6,456 @@
         "name": "Institute of Computer Engineers - Student Edition",
         "bannerImage": "icpep-banner.jpg"
       },
-      "cards": [
-        {
-          "id": 1,
-          "title": "LET'S GO ENGINEERING!! 🎉",
-          "content": "Get ready for an amazing semester ahead! The Computer Engineering department welcomes all new and returning students. Let's build the future together with innovation and passion! 🚀 #CPE2024",
-          "likes": 56,
-          "comments": [
-            {
-              "username": "john_doe",
-              "content": "Super excited for this semester!"
-            },
-            {
-              "username": "jane_smith",
-              "content": "Can't wait for all the events!"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "title": "Hackathon 2024: Register Now! ⚔️",
-          "content": "Calling all code warriors! Our annual Hackathon is back this December. Form your teams and show off your problem-solving skills to win amazing prizes. 🏆 Registration closes on November 15th. Don’t miss out!",
-          "likes": 104,
-          "comments": [
-            {
-              "username": "hack_lover",
-              "content": "Ready to win this year!"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "title": "Tech Talk: Innovations in AI 🤖",
-          "content": "Join us for an inspiring talk on the latest innovations in Artificial Intelligence. Meet industry experts and learn about emerging trends.",
-          "likes": 70,
-          "comments": [
-            {
-              "username": "ai_fan",
-              "content": "Can't wait to hear from the experts!"
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "title": "Study Groups Forming Now! 📚",
-          "content": "Struggling with your courses? Join our study groups to collaborate with peers and ace your exams together!",
-          "likes": 45,
-          "comments": []
-        },
-        {
-          "id": 5,
-          "title": "Monthly Coding Challenge: Join Us! 💻",
-          "content": "Put your coding skills to the test! Participate in our monthly coding challenge and stand a chance to win exciting prizes.",
-          "likes": 60,
-          "comments": []
-        },
-        {
-          "id": 6,
-          "title": "Career Fair: Meet Top Tech Companies! 🏢",
-          "content": "Don’t miss our annual Career Fair! Connect with leading tech companies and explore internship and job opportunities.",
-          "likes": 88,
-          "comments": []
-        },
-        {
-          "id": 7,
-          "title": "Volunteer for Community Outreach! 🌍",
-          "content": "Help us make a difference! Join our community outreach program and use your skills to help those in need.",
-          "likes": 52,
-          "comments": []
-        },
-        {
-          "id": 8,
-          "title": "Game Development Workshop 🎮",
-          "content": "Learn how to create your own video games! Join our workshop and get hands-on experience with game development.",
-          "likes": 95,
-          "comments": []
-        },
-        {
-          "id": 9,
-          "title": "Alumni Networking Event 🌐",
-          "content": "Reconnect with alumni and build valuable connections. Join us for an evening of networking and mentorship!",
-          "likes": 40,
-          "comments": []
-        },
-        {
-          "id": 10,
-          "title": "Weekly Coding Bootcamp 🏆",
-          "content": "Enhance your coding skills with our weekly bootcamp sessions. All levels are welcome!",
-          "likes": 75,
-          "comments": []
-        }
-      ]
+    "cards": [
+      {
+        "id": 1,
+        "title": "LET'S GO ENGINEERING!! 🎉",
+        "content": "Get ready for an amazing semester ahead! The Computer Engineering department welcomes all new and returning students. Let's build the future together with innovation and passion! 🚀 #CPE2024",
+        "likes": 56,
+        "comments": [
+          {
+            "username": "john_doe",
+            "content": "Super excited for this semester!"
+          },
+          {
+            "username": "jane_smith",
+            "content": "Can't wait for all the events!"
+          },
+          {
+            "username": "tech_guru",
+            "content": "Let’s make this semester unforgettable!"
+          },
+          {
+            "username": "student_leader",
+            "content": "So many opportunities ahead!"
+          },
+          {
+            "username": "future_innovator",
+            "content": "Ready to take on new challenges! 💪"
+          },
+          {
+            "username": "enthusiastic_engineer",
+            "content": "Let’s create amazing projects together!"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Hackathon 2024: Register Now! ⚔️",
+        "content": "Calling all code warriors! Our annual Hackathon is back this December. Form your teams and show off your problem-solving skills to win amazing prizes. 🏆 Registration closes on November 15th. Don’t miss out!",
+        "likes": 104,
+        "comments": [
+          {
+            "username": "hack_lover",
+            "content": "Ready to win this year!"
+          },
+          {
+            "username": "dev_guru",
+            "content": "Just formed my team! Let's do this!"
+          },
+          {
+            "username": "coding_ninja",
+            "content": "Who’s in my team? Let’s crush this!"
+          },
+          {
+            "username": "code_challenger",
+            "content": "Can't wait to tackle some tough problems!"
+          },
+          {
+            "username": "team_player",
+            "content": "Looking for teammates! DM me! 🔥"
+          },
+          {
+            "username": "tech_enthusiast",
+            "content": "This is going to be epic!"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Tech Talk: Innovations in AI 🤖",
+        "content": "Join us for an inspiring talk on the latest innovations in Artificial Intelligence. Meet industry experts and learn about emerging trends.",
+        "likes": 70,
+        "comments": [
+          {
+            "username": "ai_fan",
+            "content": "Can't wait to hear from the experts!"
+          },
+          {
+            "username": "tech_enthusiast",
+            "content": "AI is the future! Looking forward to this!"
+          },
+          {
+            "username": "data_scientist",
+            "content": "Excited to learn about real-world applications!"
+          },
+          {
+            "username": "future_leader",
+            "content": "AI will revolutionize everything!"
+          },
+          {
+            "username": "innovation_addict",
+            "content": "I hope they discuss ethical AI as well!"
+          },
+          {
+            "username": "tech_novice",
+            "content": "This sounds like a great opportunity to learn!"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Study Groups Forming Now! 📚",
+        "content": "Struggling with your courses? Join our study groups to collaborate with peers and ace your exams together!",
+        "likes": 45,
+        "comments": [
+          {
+            "username": "study_buddy",
+            "content": "Great idea! Let's team up!"
+          },
+          {
+            "username": "helpful_peer",
+            "content": "I’d love to join a group for math!"
+          },
+          {
+            "username": "study_machine",
+            "content": "Can we form a group for programming? 🤔"
+          },
+          {
+            "username": "team_spirit",
+            "content": "Study groups always help me stay motivated!"
+          },
+          {
+            "username": "collaborative_learner",
+            "content": "Let’s conquer these exams together!"
+          },
+          {
+            "username": "peer_supporter",
+            "content": "Happy to help with coding concepts!"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Monthly Coding Challenge: Join Us! 💻",
+        "content": "Put your coding skills to the test! Participate in our monthly coding challenge and stand a chance to win exciting prizes.",
+        "likes": 60,
+        "comments": [
+          {
+            "username": "code_wizard",
+            "content": "Can't wait to test my skills!"
+          },
+          {
+            "username": "coding_enthusiast",
+            "content": "I'm in! Bring on the challenge!"
+          },
+          {
+            "username": "debugging_master",
+            "content": "Let’s see who can solve it first!"
+          },
+          {
+            "username": "challenge_accepted",
+            "content": "This will be fun and educational!"
+          },
+          {
+            "username": "programming_pro",
+            "content": "Excited for the prizes this time!"
+          },
+          {
+            "username": "code_challenger",
+            "content": "Last time was tough, but I learned so much!"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Career Fair: Meet Top Tech Companies! 🏢",
+        "content": "Don’t miss our annual Career Fair! Connect with leading tech companies and explore internship and job opportunities.",
+        "likes": 88,
+        "comments": [
+          {
+            "username": "future_engineer",
+            "content": "Excited to meet potential employers!"
+          },
+          {
+            "username": "networking_pro",
+            "content": "This is a great chance for networking!"
+          },
+          {
+            "username": "career_aspirant",
+            "content": "Any tips for approaching companies?"
+          },
+          {
+            "username": "job_seeker",
+            "content": "I hope to find my dream internship!"
+          },
+          {
+            "username": "professional_grower",
+            "content": "Time to polish my resume!"
+          },
+          {
+            "username": "industry_explorer",
+            "content": "Looking forward to learning about different roles!"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Volunteer for Community Outreach! 🌍",
+        "content": "Help us make a difference! Join our community outreach program and use your skills to help those in need.",
+        "likes": 52,
+        "comments": [
+          {
+            "username": "giving_back",
+            "content": "So important to give back to the community!"
+          },
+          {
+            "username": "community_helper",
+            "content": "Excited to contribute my skills!"
+          },
+          {
+            "username": "outreach_enthusiast",
+            "content": "Let’s make a real impact together!"
+          },
+          {
+            "username": "social_contributor",
+            "content": "I love volunteering! Count me in!"
+          },
+          {
+            "username": "helping_hand",
+            "content": "Looking forward to meeting new people!"
+          },
+          {
+            "username": "community_builder",
+            "content": "Together, we can achieve great things!"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Game Development Workshop 🎮",
+        "content": "Learn how to create your own video games! Join our workshop and get hands-on experience with game development.",
+        "likes": 95,
+        "comments": [
+          {
+            "username": "gamer_nerd",
+            "content": "Can't wait to make my own game!"
+          },
+          {
+            "username": "game_dev_fan",
+            "content": "This sounds like a blast! Sign me up!"
+          },
+          {
+            "username": "indie_dev",
+            "content": "I want to learn more about game mechanics!"
+          },
+          {
+            "username": "creative_coder",
+            "content": "Excited to bring my ideas to life!"
+          },
+          {
+            "username": "level_up",
+            "content": "This could be the start of something great!"
+          },
+          {
+            "username": "game_master",
+            "content": "Can't wait to meet fellow game enthusiasts!"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Alumni Networking Event 🌐",
+        "content": "Reconnect with alumni and build valuable connections. Join us for an evening of networking and mentorship!",
+        "likes": 40,
+        "comments": [
+          {
+            "username": "networking_ninja",
+            "content": "Looking forward to meeting alumni!"
+          },
+          {
+            "username": "alumni_fan",
+            "content": "Excited to hear their success stories!"
+          },
+          {
+            "username": "future_leader",
+            "content": "Networking is key for our careers!"
+          },
+          {
+            "username": "relationship_builder",
+            "content": "Hope to find a mentor!"
+          },
+          {
+            "username": "connect_and_learn",
+            "content": "Let’s share experiences and insights!"
+          },
+          {
+            "username": "community_networker",
+            "content": "Can't wait to connect with former classmates!"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Weekly Coding Bootcamp 🏆",
+        "content": "Enhance your coding skills with our weekly bootcamp sessions. All levels are welcome!",
+        "likes": 75,
+        "comments": [
+          {
+            "username": "bootcamp_buddy",
+            "content": "This has helped me so much!"
+          },
+          {
+            "username": "learning_mindset",
+            "content": "I’m improving every week!"
+          },
+          {
+            "username": "coding_junkie",
+            "content": "Great environment for learning!"
+          },
+          {
+            "username": "tech_trainer",
+            "content": "This bootcamp is a game-changer!"
+          },
+          {
+            "username": "skill_seeker",
+            "content": "Looking forward to this week’s session!"
+          },
+          {
+            "username": "programming_passion",
+            "content": "I’m learning so much from this!"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Project Showcase: Innovative Solutions 💡",
+        "content": "Join us for our annual project showcase where students present innovative solutions they've developed throughout the semester. Let's celebrate creativity and hard work!",
+        "likes": 63,
+        "comments": [
+          {
+            "username": "innovation_leader",
+            "content": "Can't wait to see what everyone has created!"
+          },
+          {
+            "username": "project_pioneer",
+            "content": "Excited to present my project!"
+          },
+          {
+            "username": "creative_mind",
+            "content": "This is such a great opportunity for feedback!"
+          },
+          {
+            "username": "solution_seeker",
+            "content": "Looking forward to innovative ideas!"
+          },
+          {
+            "username": "team_colleague",
+            "content": "Proud of what our team has accomplished!"
+          },
+          {
+            "username": "future_entrepreneur",
+            "content": "Ready to showcase our hard work!"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "AI for Social Good Campaign 🌟",
+        "content": "We're launching a campaign to use AI technology for social good. Join us in developing projects that can positively impact our community.",
+        "likes": 50,
+        "comments": [
+          {
+            "username": "social_innovator",
+            "content": "Proud to be part of this initiative!"
+          },
+          {
+            "username": "impact_maker",
+            "content": "Let's make a difference!"
+          },
+          {
+            "username": "community_builder",
+            "content": "Excited to brainstorm ideas!"
+          },
+          {
+            "username": "change_agent",
+            "content": "AI can do so much good!"
+          },
+          {
+            "username": "future_thinker",
+            "content": "Looking forward to collaborating with everyone!"
+          },
+          {
+            "username": "tech_for_good",
+            "content": "This is a fantastic initiative!"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Coding for Beginners Bootcamp 🥇",
+        "content": "New to coding? Join our beginner-friendly bootcamp designed to teach the basics of programming in a fun and engaging way!",
+        "likes": 55,
+        "comments": [
+          {
+            "username": "coding_newbie",
+            "content": "So excited to start learning!"
+          },
+          {
+            "username": "curious_mind",
+            "content": "I hope to build my first project!"
+          },
+          {
+            "username": "programming_rookie",
+            "content": "Looking forward to meeting fellow beginners!"
+          },
+          {
+            "username": "supportive_friend",
+            "content": "Let's learn together!"
+          },
+          {
+            "username": "beginner_dev",
+            "content": "Can’t wait to dive into coding!"
+          },
+          {
+            "username": "learning_enthusiast",
+            "content": "This is exactly what I need!"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Cybersecurity Awareness Week 🔒",
+        "content": "Participate in our Cybersecurity Awareness Week with workshops and talks from industry experts. Stay safe online!",
+        "likes": 80,
+        "comments": [
+          {
+            "username": "security_savant",
+            "content": "Very important topic! Looking forward to this."
+          },
+          {
+            "username": "cyber_warrior",
+            "content": "Can't wait to learn more about staying safe online!"
+          },
+          {
+            "username": "safety_first",
+            "content": "This is so necessary for everyone!"
+          },
+          {
+            "username": "tech_safety",
+            "content": "Excited to gain practical skills!"
+          },
+          {
+            "username": "aware_user",
+            "content": "Knowledge is power in the digital age!"
+          },
+          {
+            "username": "digital_defender",
+            "content": "Let’s make the internet a safer place!"
+          }
+        ]
+      }
+    ]
     },
     {
       "id": 2,

@@ -13,9 +13,18 @@
       <div class="align-middle relative z-50" @click="toggleDropdown">
         <img src="@/assets/icons/account_icon.svg" alt="account" class="align-middle w-8 h-8 cursor-pointer">
         <!-- Dropdown menu -->
-        <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-slate-700 rounded-lg shadow-lg">
-          <p class="px-4 py-2 text-sm text-white">Username: Mrg2400 </p>
-          <p class="px-4 py-2 text-sm text-white">Wallet ID: {{ walletId }}</p>
+        <div v-if="showDropdown" class="absolute overflow-hidden right-0 mt-2 w-48 bg-slate-700 rounded-lg shadow-lg">
+          <p class="px-4 py-2 text-sm text-white ">Username: Mrg2400 </p>
+          <p v-if="walletStore.walletAddress" class="px-4 py-2 text-sm text-white">Wallet ID: {{
+            walletStore.walletAddress }}</p>
+          <button v-if="!walletStore.walletAddress" @click="connectWallet"
+            class="w-full text-left px-4 py-2 hover:bg-slate-600 text-white">
+            Connect Wallet
+          </button>
+          <button v-if="walletStore.walletAddress" @click="disconnectWallet"
+            class="w-full text-left px-4 py-2 hover:bg-slate-600 text-white">
+            Disconnect Wallet
+          </button>
           <button class="w-full text-left px-4 py-2 hover:bg-slate-600 text-white">
             Logout
           </button>
@@ -25,13 +34,16 @@
 
     <!-- Navbar -->
     <nav class="col-span-1 bg-slate-800 p-4 rounded-[25px] sticky top-0 h-[calc(100vh-64px)] overflow-y-auto">
-      <RouterLink to="/">
-        <h1 class="p-1 text-xl font-bold text-slate-100 mb-4 rounded-xl text-left">
+      <RouterLink to="/" class="flex h-[35px] items-center items-baseline ">
+        <div class="h-[15px] m-2">
+          <img src="@/assets/icons/homeIcon.svg" alt="home" class="h-[15px] cursor-pointer">
+        </div>
+        <h1 class="text-2xl h-full font-bold text-slate-100 text-left">
           Home
         </h1>
       </RouterLink>
       <div>
-        <h1 class="text-xl font-medium font-zinc-200 mb-4 rounded-xl text-left">
+        <h1 class="mt-10 text-xl font-medium font-zinc-200 mb-4 rounded-xl text-left">
           JOINED ORGANIZATIONS
         </h1>
       </div>
@@ -39,7 +51,7 @@
         <li v-for="org in organizations" :key="org.id">
           <RouterLink :to="`/organizations/${org.id}`"
             class="flex items-center text-white w-full rounded-lg hover:text-gray-200"
-            active-class="bg-blue-900 p-2 text-white" exact-active-class="bg-slate-600 text-white">
+            active-class="bg-blue-900 p-2 text-white" exact-active-class="bg-blue-600 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.7 988.19"
               class="fill-white w-[30px] h-[30px] mr-2 fill-current text-slate-500">
               <g id="Layer_2" data-name="Layer 2">
@@ -69,44 +81,67 @@
 <script>
 import { ref, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
+import { Connection } from '@solana/web3.js';
+import { useWalletStore } from '@/stores/useWalletStore'; // adjust the path as needed
 
 export default {
   setup() {
-    const organizations = ref([]);
+    const organizations = ref([]); // Store joined organizations
     const showDropdown = ref(false);
-    const walletId = ref("Your Solana Wallet ID"); // Replace with actual wallet ID logic
+    const walletStore = useWalletStore(); // Get wallet store
+
+    const connection = new Connection('https://api.devnet.solana.com'); // Solana Devnet
 
     const toggleDropdown = () => {
       showDropdown.value = !showDropdown.value;
     };
 
-    // Fetch organizations from the local JSON file
     const fetchOrganizations = async () => {
       try {
-        console.log('Fetching organizations...'); // Log fetch start
-
-        const response = await fetch('/unipins-database.json'); // Corrected path to local file
-        if (!response.ok) throw new Error('Network response was not ok');
-
+        const response = await fetch('/unipins-database.json');
         const data = await response.json();
-
-        console.log('Data fetched:', data); // Log data to debug
-        organizations.value = data.organizations || []; // Ensure the structure is what you expect
-
-        console.log('Organizations:', organizations.value); // Log organizations for verification
+        organizations.value = data.organizations || [];
       } catch (error) {
-        console.error('Error fetching organizations:', error); // Log any errors
+        console.error('Error fetching organizations:', error);
       }
     };
 
-    // Fetch organizations when the component is mounted
+    const connectWallet = async () => {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const response = await window.solana.connect();
+          const address = response.publicKey.toString();
+          walletStore.setWalletAddress(address); // Set wallet address in store
+          console.log('Wallet connected:', address);
+        } catch (err) {
+          console.error('Error connecting to Phantom Wallet:', err);
+        }
+      } else {
+        alert('Phantom wallet is not installed. Please install it to proceed.');
+      }
+    };
+
+    const disconnectWallet = async () => {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          await window.solana.disconnect();
+          walletStore.clearWalletAddress(); // Clear wallet address in store
+          console.log('Wallet disconnected.');
+        } catch (err) {
+          console.error('Error disconnecting Phantom Wallet:', err);
+        }
+      }
+    };
+
     onMounted(fetchOrganizations);
 
     return {
       organizations,
       showDropdown,
       toggleDropdown,
-      walletId,
+      connectWallet,
+      disconnectWallet,
+      walletStore, // Expose wallet store for template access
     };
   },
 };
